@@ -1,40 +1,24 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './navbar.scss';
-import { NavLink } from 'react-router-dom';
 
-const Navbar = () => {
-  const [isActive, setIsActive] = useState(false);
 
-  const toggleMenu = () => {
-    setIsActive(!isActive);
-  };
 
+import React from 'react';
+import logo from "./logo.svg";
+import {NavLink} from "react-router-dom";
+
+function Navbar(props) {
   return (
-    <>
-      <header>
-        <div className="navbar container">
-          <div className="logo">
-            <img src={logo} alt="logo" />
-          </div>
+      <div className={"w-[100%] h-auto z-10 absolute flex py-[40px]"}>
+        <img src={logo} alt="logo" className={"ml-[100px]"}/>
 
-          <div className={`items ${isActive ? 'active' : ''}`}>
-            <NavLink to="/">HOME</NavLink>
-            <NavLink to="/about">ABOUT</NavLink>
-            <NavLink to="/menu">MENU</NavLink>
-            <NavLink to="/products">PRODUCTS</NavLink>
-            <NavLink to="/news">NEWS</NavLink>
-            <NavLink to="/locations">LOCATIONS</NavLink>
-          </div>
-
-          <div className="menu-icon" onClick={toggleMenu}>
-            <span className={`open-icon ${isActive ? 'active' : ''}`}>☰</span>
-            <span className={`close-icon ${isActive ? 'active' : ''}`}>✖</span>
-          </div>
+        <div className={"py-[23px] gap-[55px] ml-[500px] text-[white] font-bold flex"}>
+          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/about">ABOUT</NavLink>
+          <NavLink to="/menu">MENU</NavLink>
+          <NavLink to="/products">PRODUCTS</NavLink>
+          <NavLink to="/news">NEWS</NavLink>
+          <NavLink to="/locations">LOCATIONS</NavLink>
         </div>
-      </header>
-    </>
-  );
-};
+      </div>);
+}
 
 export default Navbar;
